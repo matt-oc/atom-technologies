@@ -5,15 +5,26 @@
 
   /* ---------------- Nav scroll state ---------------- */
   var nav = document.getElementById("siteNav");
+  var navTicking = false;
   function updateNav() {
     if (window.scrollY > 24) {
       nav.classList.add("is-scrolled");
     } else {
       nav.classList.remove("is-scrolled");
     }
+    navTicking = false;
   }
   updateNav();
-  window.addEventListener("scroll", updateNav, { passive: true });
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!navTicking) {
+        requestAnimationFrame(updateNav);
+        navTicking = true;
+      }
+    },
+    { passive: true }
+  );
 
   /* ---------------- Footer year ---------------- */
   var yearEl = document.getElementById("year");
@@ -81,6 +92,20 @@
       { threshold: 0.6 }
     );
     counters.forEach(function (el) { countIo.observe(el); });
+  }
+
+  /* ---------------- Pause offscreen animations ---------------- */
+  var animatedRegions = document.querySelectorAll(".hero-visual, .capability-strip");
+  if (!prefersReducedMotion && "IntersectionObserver" in window && animatedRegions.length) {
+    var animIo = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle("anim-paused", !entry.isIntersecting);
+        });
+      },
+      { threshold: 0 }
+    );
+    animatedRegions.forEach(function (el) { animIo.observe(el); });
   }
 
   /* ---------------- Contact form: AJAX submit to Formspree ---------------- */

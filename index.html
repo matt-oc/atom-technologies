@@ -117,12 +117,8 @@
               </g>
 
               <!-- traveling packet along one link -->
-              <circle class="orbit-packet" r="3">
-                <animateMotion dur="4.5s" repeatCount="indefinite" path="M280,260 L500,120"></animateMotion>
-              </circle>
-              <circle class="orbit-packet" r="3">
-                <animateMotion dur="6s" begin="1.2s" repeatCount="indefinite" path="M280,260 L60,330"></animateMotion>
-              </circle>
+              <circle class="orbit-packet packet-1" cx="280" cy="260" r="3"></circle>
+              <circle class="orbit-packet packet-2" cx="280" cy="260" r="3"></circle>
 
               <!-- orbits, echoing the atom mark -->
               <g class="orbit-group-a" style="transform-origin:280px 260px;">
@@ -394,7 +390,7 @@
                   </div>
                   <div class="col-sm-6">
                     <label class="form-label-atom" for="fPhone">Phone</label>
-                    <input class="form-control-atom" type="tel" id="fPhone" name="phone" placeholder="+353 ...">
+                    <input class="form-control-atom" type="tel" id="fPhone" name="phone" placeholder="Your phone number">
                   </div>
                   <div class="col-sm-6">
                     <label class="form-label-atom" for="fSubject">Subject</label>
