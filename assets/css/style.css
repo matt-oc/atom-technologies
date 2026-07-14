@@ -189,7 +189,6 @@ h1, h2, h3, .display-font {
   transform: translateZ(0);
 }
 .site-nav.is-scrolled {
-  padding: 0.85rem 0;
   background: rgba(246, 250, 249, 0.9);
   backdrop-filter: blur(9px) saturate(140%);
   border-color: var(--line);
