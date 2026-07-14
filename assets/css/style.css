@@ -1,5 +1,5 @@
 /* ============================================================
-   atom technologies — design tokens
+   atom technologies
    ============================================================ */
 @font-face {
   font-family: "Adineue";
@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -847,6 +848,7 @@ textarea.form-control-atom { resize: vertical; min-height: 120px; }
 .footer-brand img { height: 30px; margin-bottom: 1rem; }
 .footer-links a {
   display: block;
+  word-wrap: break-word;
   font-size: 0.9rem;
   padding: 0.3rem 0;
   color: rgba(246,250,249,0.7);
